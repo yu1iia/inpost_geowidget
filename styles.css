@@ -1,0 +1,27 @@
+.inpost_title {
+  font-size: 18px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-transform: uppercase;
+}
+.locker_container {
+  width: 900px;
+  height: 300px;
+  margin: 0 auto;
+  /* display: flex;
+  flex-direction: column;
+  align-items: flex-start; */
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.locker_name {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-transform: uppercase;
+}
+.locker_id {
+  width: 170px;
+  height: 100%;
+}

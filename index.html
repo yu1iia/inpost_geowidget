@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl" style="height: 100%">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <meta http-equiv="x-ua-compatible" content="IE=11" />
+    <title>Inpost Geowidget</title>
+
+    <script src="https://geowidget.easypack24.net/js/sdk-for-javascript.js"></script>
+    <script type="text/javascript">
+      window.easyPackAsyncInit = function () {
+        easyPack.init({
+          defaultLocale: 'pl',
+          mapType: 'osm',
+          searchType: 'osm',
+          points: {
+            types: ['parcel_locker'],
+          },
+          map: {
+            initialTypes: ['parcel_locker'],
+          },
+        });
+        var map = easyPack.mapWidget('easypack-map', function (point) {
+          console.log(point.name);
+          console.log(point);
+          document.getElementById('locker_id').innerHTML = `${point.name},
+          ${point.address.line1},
+          ${point.address.line2},
+          ${point.location_description}`;
+        });
+      };
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://geowidget.easypack24.net/css/easypack.css"
+    />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="locker_container">
+      <p class="locker_name">Locker</p>
+      <span id="locker_id" class="locker_id"></span>
+      <br />
+      <button class="order-button modal-btn" type="button" data-modal-open>
+        Choose locker
+      </button>
+
+      <!--Modal button-->
+      <div class="backdrop is-hidden" data-modal>
+        <div class="modal-wrapper">
+          <div class="modal">
+            <button type="button" class="close-btn" data-modal-close>
+              Close
+            </button>
+            <div class="" id="easypack-map"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./modal.js"></script>
+  </body>
+</html>
